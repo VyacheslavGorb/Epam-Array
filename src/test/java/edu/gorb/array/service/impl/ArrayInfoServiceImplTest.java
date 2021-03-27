@@ -1,4 +1,4 @@
-package edu.gorb.array.service;
+package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
 import org.testng.annotations.BeforeClass;
@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class ArrayInfoServiceTest {
-    ArrayInfoService service;
+public class ArrayInfoServiceImplTest {
+    ArrayInfoServiceImpl service;
 
     @BeforeClass
     public void createServiceObject() {
-        service = new ArrayInfoService();
+        service = new ArrayInfoServiceImpl();
     }
 
     @Test(dataProvider = "sum_data")

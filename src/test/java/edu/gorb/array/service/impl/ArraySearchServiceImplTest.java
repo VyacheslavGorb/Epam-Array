@@ -1,4 +1,4 @@
-package edu.gorb.array.service;
+package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
 import org.testng.annotations.BeforeClass;
@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class ArraySearchServiceTest {
+public class ArraySearchServiceImplTest {
 
-    ArraySearchService service;
+    ArraySearchServiceImpl service;
 
     @BeforeClass
     public void createServiceObject() {
-        service = new ArraySearchService();
+        service = new ArraySearchServiceImpl();
     }
 
     @Test(dataProvider = "max_data")

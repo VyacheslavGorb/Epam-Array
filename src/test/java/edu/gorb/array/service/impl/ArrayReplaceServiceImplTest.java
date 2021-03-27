@@ -1,4 +1,4 @@
-package edu.gorb.array.service;
+package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
 import org.testng.annotations.BeforeClass;
@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class ArrayReplaceServiceTest {
+public class ArrayReplaceServiceImplTest {
 
-    ArrayReplaceService service;
+    ArrayReplaceServiceImpl service;
 
     @BeforeClass
     public void createServiceObject() {
-        service = new ArrayReplaceService();
+        service = new ArrayReplaceServiceImpl();
     }
 
     @Test(dataProvider = "replace_data")
