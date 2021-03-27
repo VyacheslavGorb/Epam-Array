@@ -1,6 +1,6 @@
-package com.company.Gorb.service;
+package edu.gorb.array.service;
 
-import com.company.Gorb.array.IntArray;
+import edu.gorb.array.enity.IntArray;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,26 +16,26 @@ public class ArrayInfoServiceTest {
     }
 
     @Test(dataProvider = "sum_data")
-    public void getSum(IntArray array, int expectedValue) {
-        int sum = service.getSum(array);
+    public void calcSum(IntArray array, int expectedValue) {
+        int sum = service.calcSum(array);
         assertEquals(sum, expectedValue);
     }
 
     @Test(dataProvider = "average_data")
-    public void getAverage(IntArray array, double expectedValue) {
-        double averageValue = service.getAverage(array);
+    public void calcAverage(IntArray array, double expectedValue) {
+        double averageValue = service.calcAverage(array);
         assertEquals(averageValue, expectedValue);
     }
 
     @Test(dataProvider = "positive_element_count")
-    public void getPositiveElementCount(IntArray array, int expectedValue) {
-        int count = service.getPositiveElementCount(array);
+    public void calcPositiveElementCount(IntArray array, int expectedValue) {
+        int count = service.calcPositiveElementCount(array);
         assertEquals(count, expectedValue);
     }
 
     @Test(dataProvider = "negative_element_count")
-    public void getNegativeElementCount(IntArray array, int expectedValue) {
-        int count = service.getNegativeElementCount(array);
+    public void calcNegativeElementCount(IntArray array, int expectedValue) {
+        int count = service.calcNegativeElementCount(array);
         assertEquals(count, expectedValue);
     }
 

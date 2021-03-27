@@ -1,4 +1,4 @@
-package com.company.Gorb.array;
+package edu.gorb.array.enity;
 
 import java.util.Arrays;
 

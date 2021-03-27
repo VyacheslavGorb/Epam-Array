@@ -1,9 +1,9 @@
-package com.company.Gorb.service;
+package edu.gorb.array.service;
 
-import com.company.Gorb.array.IntArray;
+import edu.gorb.array.enity.IntArray;
 
 public class ArrayInfoService {
-    public int getSum(IntArray array) {
+    public int calcSum(IntArray array) {
         int sum = 0;
         for (int i = 0; i < array.size(); i++) {
             sum += array.get(i);
@@ -11,15 +11,15 @@ public class ArrayInfoService {
         return sum;
     }
 
-    public double getAverage(IntArray array) {
+    public double calcAverage(IntArray array) {
         if (array.size() == 0) {
             return 0;
         }
-        int sum = getSum(array);
+        int sum = calcSum(array);
         return (double) sum / array.size();
     }
 
-    public int getPositiveElementCount(IntArray array) {
+    public int calcPositiveElementCount(IntArray array) {
         int count = 0;
         for (int i = 0; i < array.size(); i++) {
             if (array.get(i) > 0) {
@@ -29,7 +29,7 @@ public class ArrayInfoService {
         return count;
     }
 
-    public int getNegativeElementCount(IntArray array) {
+    public int calcNegativeElementCount(IntArray array) {
         int count = 0;
         for (int i = 0; i < array.size(); i++) {
             if (array.get(i) < 0) {

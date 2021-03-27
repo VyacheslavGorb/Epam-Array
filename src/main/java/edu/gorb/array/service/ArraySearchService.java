@@ -1,6 +1,6 @@
-package com.company.Gorb.service;
+package edu.gorb.array.service;
 
-import com.company.Gorb.array.IntArray;
+import edu.gorb.array.enity.IntArray;
 
 public class ArraySearchService {
     int findMinElement(IntArray array) {

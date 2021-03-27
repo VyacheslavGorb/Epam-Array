@@ -1,6 +1,6 @@
-package com.company.Gorb.service;
+package edu.gorb.array.service;
 
-import com.company.Gorb.array.IntArray;
+import edu.gorb.array.enity.IntArray;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
