@@ -7,7 +7,7 @@ import org.apache.logging.log4j.*;
 
 public class ArrayInfoServiceImpl implements ArrayInfoService {
 
-    static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
     private static final String ERROR_MESSAGE = "Array is empty";
 
     @Override

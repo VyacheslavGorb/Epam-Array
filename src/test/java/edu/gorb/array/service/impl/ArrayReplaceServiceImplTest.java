@@ -17,7 +17,7 @@ public class ArrayReplaceServiceImplTest {
     }
 
     @Test(dataProvider = "replace_data")
-    public void replaceOddWithZero(IntArray array, IntArray expectedArray) {
+    public void testReplaceOddWithZero(IntArray array, IntArray expectedArray) {
         service.replaceOddWithZero(array);
         assertEquals(array, expectedArray);
     }
