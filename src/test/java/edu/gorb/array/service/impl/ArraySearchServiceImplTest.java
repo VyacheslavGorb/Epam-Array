@@ -42,23 +42,23 @@ public class ArraySearchServiceImplTest {
     @DataProvider(name = "max_data")
     public Object[][] createMaxData() {
         return new Object[][]{
-                {new IntArray(new int[]{4, 2, 3, 4, 5, 6}), 6},
-                {new IntArray(new int[]{10, 10, 10, 10, 10, 10, 10, 10}), 10}
+                {new IntArray(4, 2, 3, 4, 5, 6), 6},
+                {new IntArray(10, 10, 10, 10, 10, 10, 10, 10), 10}
         };
     }
 
     @DataProvider(name = "min_data")
     public Object[][] createMinData() {
         return new Object[][]{
-                {new IntArray(new int[]{4, 2, 3, 4, 5, 6}), 2},
-                {new IntArray(new int[]{10, 10, 10, 10, 10, 10, 10, 10}), 10}
+                {new IntArray(4, 2, 3, 4, 5, 6), 2},
+                {new IntArray(10, 10, 10, 10, 10, 10, 10, 10), 10}
         };
     }
 
     @DataProvider(name = "empty_array")
     public Object[][] createEmptyArray(){
         return new Object[][]{
-                {new IntArray(new int[]{})}
+                {new IntArray()}
         };
     }
 

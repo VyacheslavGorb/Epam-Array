@@ -37,10 +37,10 @@ public class ArraySortServiceImplTest {
     @DataProvider(name = "sort_data")
     public Object[][] createReplaceData() {
         return new Object[][]{
-                {new IntArray(new int[]{4, 2, 3, 4, 5, 6}),
-                        new IntArray(new int[]{2, 3, 4, 4, 5, 6})},
-                {new IntArray(new int[]{10, 2, 10, 8, 10, 10, 4, 10}),
-                        new IntArray(new int[]{2, 4, 8, 10, 10, 10, 10, 10})}
+                {new IntArray(4, 2, 3, 4, 5, 6),
+                        new IntArray(2, 3, 4, 4, 5, 6)},
+                {new IntArray(10, 2, 10, 8, 10, 10, 4, 10),
+                        new IntArray(2, 4, 8, 10, 10, 10, 10, 10)}
         };
     }
 }

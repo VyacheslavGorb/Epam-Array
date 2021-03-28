@@ -1,7 +1,7 @@
 package edu.gorb.array.reader;
 
 import edu.gorb.array.exception.FileException;
-import edu.gorb.array.validator.Validator;
+import edu.gorb.array.validator.ArrayValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class ArrayReader {
-    private static final Validator validator = new Validator();
+    private static final ArrayValidator validator = new ArrayValidator();
     private static final Logger logger = LogManager.getLogger();
 
     private static final String ERROR_READ_MESSAGE = "Error while reading file";

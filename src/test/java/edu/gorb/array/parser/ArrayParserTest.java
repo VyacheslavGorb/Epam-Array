@@ -13,7 +13,7 @@ public class ArrayParserTest {
     ArrayParser parser;
 
     @BeforeClass
-    public void createParser(){
+    public void createParser() {
         parser = new ArrayParser();
     }
 
@@ -24,11 +24,24 @@ public class ArrayParserTest {
         assertEquals(array, expectedArray);
     }
 
+    @Test(dataProvider = "array_lines_invalid", expectedExceptions = ValidityException.class)
+    public void testParseLineException(String line) throws ValidityException {
+        IntArray array = parser.parseLine(line);
+    }
+
     @DataProvider(name = "array_lines")
     public Object[][] createArrayLines() {
         return new Object[][]{
-                {"1, 2, 3, 4, 5, 6, 7", new IntArray(new int[]{1,2,3,4,5,6,7})},
-                {"1, 2, 3, 4, 5, 6, 7", new IntArray(new int[]{1,2,3,4,5,6,7})}
+                {"1, 2, 3, 4, 5, 6, 7", new IntArray(1, 2, 3, 4, 5, 6, 7)},
+                {"1, 2, 3, 4, 5, 6, 7", new IntArray(1, 2, 3, 4, 5, 6, 7)},
+        };
+    }
+
+    @DataProvider(name = "array_lines_invalid")
+    public Object[][] createInvalidArrayLines() {
+        return new Object[][]{
+                {"1, 2, 3, 4, 5, 6, 7sdffsdxv"},
+                {"1, 2 3, 4, 5, 6, 7"},
         };
     }
 }

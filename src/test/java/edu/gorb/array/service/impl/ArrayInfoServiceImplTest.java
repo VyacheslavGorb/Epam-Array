@@ -53,39 +53,39 @@ public class ArrayInfoServiceImplTest {
     @DataProvider(name = "sum_data")
     public Object[][] createSumData() {
         return new Object[][]{
-                {new IntArray(new int[]{1, 2, 3, 4, 5, 6}), 21},
-                {new IntArray(new int[]{10, 10, 10, 10, 10, 10, 10, 10}), 80}
+                {new IntArray(1, 2, 3, 4, 5, 6), 21},
+                {new IntArray(10, 10, 10, 10, 10, 10, 10, 10), 80}
         };
     }
 
     @DataProvider(name = "average_data")
     public Object[][] createAverageData() {
         return new Object[][]{
-                {new IntArray(new int[]{4, 2, 3, 4, 5, 6}), 4},
-                {new IntArray(new int[]{10, 10, 10, 10, 10, 10, 10, 10}), 10}
+                {new IntArray(4, 2, 3, 4, 5, 6), 4},
+                {new IntArray(10, 10, 10, 10, 10, 10, 10, 10), 10}
         };
     }
 
     @DataProvider(name = "positive_element_count")
     public Object[][] createPositiveElementData() {
         return new Object[][]{
-                {new IntArray(new int[]{1, -2, 3, 4, -5, 6}), 4},
-                {new IntArray(new int[]{1, -2, -3, 4, -5, -6}), 2},
+                {new IntArray(1, -2, 3, 4, -5, 6), 4},
+                {new IntArray(1, -2, -3, 4, -5, -6), 2},
         };
     }
 
     @DataProvider(name = "negative_element_count")
     public Object[][] createNegativeElementData() {
         return new Object[][]{
-                {new IntArray(new int[]{1, -2, 3, 4, -5, 6}), 2},
-                {new IntArray(new int[]{1, -2, -3, 4, -5, -6}), 4},
+                {new IntArray(1, -2, 3, 4, -5, 6), 2},
+                {new IntArray(1, -2, -3, 4, -5, -6), 4},
         };
     }
 
     @DataProvider(name = "empty_array")
     public Object[][] createEmptyArray(){
         return new Object[][]{
-                {new IntArray(new int[]{})}
+                {new IntArray()}
         };
     }
 
