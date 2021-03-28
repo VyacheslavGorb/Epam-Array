@@ -9,12 +9,10 @@ import static org.testng.Assert.assertEquals;
 
 public class ArrayReaderTest {
     ArrayReader reader;
-    String projectFolder;
 
     @BeforeClass
     public void createParser() {
         reader = new ArrayReader();
-        projectFolder = System.getProperty("user.dir");
     }
 
     @Test(dataProvider = "files_data")
@@ -32,16 +30,16 @@ public class ArrayReaderTest {
     @DataProvider(name = "files_data")
     public Object[][] createFileRecords() {
         return new Object[][]{
-                {projectFolder + "./src/test/resources/testFile1.txt", "1, 2, 3, 4, 5, 6"},
-                {projectFolder + "./src/test/resources/testFile2.txt", "43, 2, 6, 3, 2, 5, 6"}
+                {"src/test/resources/testFile1.txt", "1, 2, 3, 4, 5, 6"},
+                {"src/test/resources/testFile2.txt", "43, 2, 6, 3, 2, 5, 6"}
         };
     }
 
     @DataProvider(name = "files_data_invalid")
     public Object[][] createFileRecordsInvalid() {
         return new Object[][]{
-                {projectFolder + "./src/test/resources/testFile3.txt"},
-                {projectFolder + "./src/test/resources/testFile4.txt"}
+                {"src/test/resources/testFile3.txt"},
+                {"src/test/resources/testFile4.txt"}
         };
     }
 }

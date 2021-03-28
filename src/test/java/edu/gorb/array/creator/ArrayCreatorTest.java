@@ -32,16 +32,16 @@ public class ArrayCreatorTest {
     @DataProvider(name = "files_data")
     public Object[][] createFileRecords() {
         return new Object[][]{
-                {projectFolder + "./src/test/resources/testFile1.txt", new IntArray(1, 2, 3, 4, 5, 6)},
-                {projectFolder + "./src/test/resources/testFile2.txt", new IntArray(43, 2, 6, 3, 2, 5, 6)}
+                {"src/test/resources/testFile1.txt", new IntArray(1, 2, 3, 4, 5, 6)},
+                {"src/test/resources/testFile2.txt", new IntArray(43, 2, 6, 3, 2, 5, 6)}
         };
     }
 
     @DataProvider(name = "files_data_invalid")
     public Object[][] createFileRecordsInvalid() {
         return new Object[][]{
-                {projectFolder + "./src/test/resources/testFile3.txt"},
-                {projectFolder + "./src/test/resources/testFile4.txt"}
+                {"src/test/resources/testFile3.txt"},
+                {"src/test/resources/testFile4.txt"}
         };
     }
 }
