@@ -1,6 +1,6 @@
 package edu.gorb.array.exception;
 
-public class FileException extends Exception{
+public class FileException extends Exception {
     public FileException() {
     }
 

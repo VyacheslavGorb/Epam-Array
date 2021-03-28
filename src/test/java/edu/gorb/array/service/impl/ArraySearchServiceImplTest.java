@@ -56,7 +56,7 @@ public class ArraySearchServiceImplTest {
     }
 
     @DataProvider(name = "empty_array")
-    public Object[][] createEmptyArray(){
+    public Object[][] createEmptyArray() {
         return new Object[][]{
                 {new IntArray()}
         };

@@ -2,16 +2,21 @@ package edu.gorb.array.creator;
 
 import edu.gorb.array.enity.IntArray;
 import edu.gorb.array.exception.FileException;
-import edu.gorb.array.exception.ValidityException;
 import edu.gorb.array.parser.ArrayParser;
 import edu.gorb.array.reader.ArrayReader;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArrayCreator {
-    public IntArray createArrayEntity(String fileName) throws FileException, ValidityException {
+    private static final Logger logger = LogManager.getLogger();
+
+    public IntArray createArrayEntity(String fileName) throws FileException {
         ArrayReader reader = new ArrayReader();
         ArrayParser parser = new ArrayParser();
         String line = reader.readArrayLine(fileName);
         IntArray array = parser.parseLine(line);
+        logger.log(Level.INFO, "Entity created successfully");
         return array;
     }
 }

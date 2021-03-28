@@ -19,7 +19,7 @@ public class ArraySortServiceImpl implements ArraySortService {
                 if (array.get(j) > array.get(j + 1)) {
                     swap(array, j, j + 1);
                 }
-        logger.log(Level.INFO, INFO_MESSAGE,"Bubble sort");
+        logger.log(Level.INFO, INFO_MESSAGE, "Bubble sort");
     }
 
     @Override

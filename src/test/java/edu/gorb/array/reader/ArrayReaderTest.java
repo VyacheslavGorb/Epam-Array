@@ -1,7 +1,6 @@
 package edu.gorb.array.reader;
 
 import edu.gorb.array.exception.FileException;
-import edu.gorb.array.exception.ValidityException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,16 +32,16 @@ public class ArrayReaderTest {
     @DataProvider(name = "files_data")
     public Object[][] createFileRecords() {
         return new Object[][]{
-                {projectFolder + "./src/test/resources/testReader1.txt", "1, 2, 3, 4, 5, 6"},
-                {projectFolder + "./src/test/resources/testReader2.txt", "43, 2, 6, 3, 2, 5, 6"}
+                {projectFolder + "./src/test/resources/testFile1.txt", "1, 2, 3, 4, 5, 6"},
+                {projectFolder + "./src/test/resources/testFile2.txt", "43, 2, 6, 3, 2, 5, 6"}
         };
     }
 
     @DataProvider(name = "files_data_invalid")
     public Object[][] createFileRecordsInvalid() {
         return new Object[][]{
-                {projectFolder + "./src/test/resources/testReader3.txt"},
-                {projectFolder + "./src/test/resources/testReader4.txt"}
+                {projectFolder + "./src/test/resources/testFile3.txt"},
+                {projectFolder + "./src/test/resources/testFile4.txt"}
         };
     }
 }
