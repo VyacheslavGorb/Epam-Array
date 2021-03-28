@@ -1,6 +1,7 @@
 package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
+import edu.gorb.array.exception.ArrayException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,25 +17,35 @@ public class ArrayInfoServiceImplTest {
     }
 
     @Test(dataProvider = "sum_data")
-    public void calcSum(IntArray array, int expectedValue) {
+    public void testCalcSum(IntArray array, int expectedValue) throws ArrayException {
         int sum = service.calcSum(array);
         assertEquals(sum, expectedValue);
     }
 
+    @Test(dataProvider = "empty_array", expectedExceptions = ArrayException.class)
+    public void testCalcSumException(IntArray array) throws ArrayException {
+        service.calcSum(array);
+    }
+
     @Test(dataProvider = "average_data")
-    public void calcAverage(IntArray array, double expectedValue) {
+    public void testCalcAverage(IntArray array, double expectedValue) throws ArrayException {
         double averageValue = service.calcAverage(array);
         assertEquals(averageValue, expectedValue);
     }
 
+    @Test(dataProvider = "empty_array", expectedExceptions = ArrayException.class)
+    public void testCalcAverageException(IntArray array) throws ArrayException {
+        service.calcAverage(array);
+    }
+
     @Test(dataProvider = "positive_element_count")
-    public void calcPositiveElementCount(IntArray array, int expectedValue) {
+    public void testCalcPositiveElementCount(IntArray array, int expectedValue) {
         int count = service.calcPositiveElementCount(array);
         assertEquals(count, expectedValue);
     }
 
     @Test(dataProvider = "negative_element_count")
-    public void calcNegativeElementCount(IntArray array, int expectedValue) {
+    public void testCalcNegativeElementCount(IntArray array, int expectedValue) {
         int count = service.calcNegativeElementCount(array);
         assertEquals(count, expectedValue);
     }
@@ -68,6 +79,13 @@ public class ArrayInfoServiceImplTest {
         return new Object[][]{
                 {new IntArray(new int[]{1, -2, 3, 4, -5, 6}), 2},
                 {new IntArray(new int[]{1, -2, -3, 4, -5, -6}), 4},
+        };
+    }
+
+    @DataProvider(name = "empty_array")
+    public Object[][] createEmptyArray(){
+        return new Object[][]{
+                {new IntArray(new int[]{})}
         };
     }
 
