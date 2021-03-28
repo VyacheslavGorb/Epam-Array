@@ -14,7 +14,7 @@ public class IntArray {
         Arrays.fill(array, value);
     }
 
-    public IntArray(int[] a) {
+    public IntArray(int ...a) {
         array = a;
     }
 
