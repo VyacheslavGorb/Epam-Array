@@ -1,6 +1,7 @@
 package edu.gorb.array.parser;
 
 import edu.gorb.array.enity.IntArray;
+import edu.gorb.array.exception.ValidityException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class ArrayParserTest {
 
 
     @Test(dataProvider = "array_lines")
-    public void testParseLine(String line, IntArray expectedArray) {
+    public void testParseLine(String line, IntArray expectedArray) throws ValidityException {
         IntArray array = parser.parseLine(line);
         assertEquals(array, expectedArray);
     }
