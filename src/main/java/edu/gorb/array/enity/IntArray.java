@@ -1,9 +1,19 @@
 package edu.gorb.array.enity;
 
+import edu.gorb.array.exception.ArrayException;
+import edu.gorb.array.validator.ArrayValidator;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 
 public class IntArray {
     private final int[] array;
+    private static final ArrayValidator validator = new ArrayValidator();
+    private static final String INDEX_ERROR_MESSAGE = "Index is not valid";
+    private static final Logger logger = LogManager.getLogger();
+
 
     public IntArray(int size) {
         array = new int[size];
@@ -15,14 +25,22 @@ public class IntArray {
     }
 
     public IntArray(int... a) {
-        array = a;
+        array = a.clone();
     }
 
-    public int get(int index) {
-        return array[index];
+    public int get(int index) throws ArrayException {
+        if (!validator.isValidArrayIndex(this,index)){
+            logger.log(Level.ERROR, INDEX_ERROR_MESSAGE);
+            throw new ArrayException(INDEX_ERROR_MESSAGE);
+        }
+            return array[index];
     }
 
-    public void set(int index, int value) {
+    public void set(int index, int value) throws ArrayException {
+        if (!validator.isValidArrayIndex(this,index)){
+            logger.log(Level.ERROR, INDEX_ERROR_MESSAGE);
+            throw new ArrayException(INDEX_ERROR_MESSAGE);
+        }
         array[index] = value;
     }
 

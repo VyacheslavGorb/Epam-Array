@@ -42,10 +42,13 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     @Override
     public int calcPositiveElementCount(IntArray array) {
         int count = 0;
-        for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) > 0) {
-                count++;
+        try {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) > 0) {
+                    count++;
+                }
             }
+        } catch (ArrayException ignored) {
         }
         logger.log(Level.INFO, "Positive element count is {}", count);
         return count;
@@ -54,10 +57,13 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     @Override
     public int calcNegativeElementCount(IntArray array) {
         int count = 0;
-        for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) < 0) {
-                count++;
+        try{
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) < 0) {
+                    count++;
+                }
             }
+        }catch (ArrayException ignored){
         }
         logger.log(Level.INFO, "Negative element count is {}", count);
         return count;

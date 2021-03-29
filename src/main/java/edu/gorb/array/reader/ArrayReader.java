@@ -16,9 +16,9 @@ public class ArrayReader {
     private static final ArrayValidator validator = new ArrayValidator();
     private static final Logger logger = LogManager.getLogger();
 
-    private static final String ERROR_READ_MESSAGE = "Error while reading file";
-    private static final String ERROR_VALIDATION_MESSAGE = "No valid lines in file";
-    private static final String SUCCESS_READ = "Correct line was read";
+    private static final String READ_ERROR_MESSAGE = "Error while reading file";
+    private static final String VALIDATION_ERROR_MESSAGE = "No valid lines in file";
+    private static final String SUCCESS_READ_MESSAGE = "Correct line was read";
 
     public String readArrayLine(String fileName) throws FileException {
         Path path = Paths.get(fileName);
@@ -29,14 +29,14 @@ public class ArrayReader {
                     .findFirst()
                     .orElse(null);
         } catch (IOException exception) {
-            logger.log(Level.ERROR, ERROR_READ_MESSAGE);
-            throw new FileException(ERROR_READ_MESSAGE);
+            logger.log(Level.ERROR, READ_ERROR_MESSAGE);
+            throw new FileException(READ_ERROR_MESSAGE);
         }
         if (validLine == null) {
-            logger.log(Level.ERROR, ERROR_VALIDATION_MESSAGE);
-            throw new FileException(ERROR_VALIDATION_MESSAGE);
+            logger.log(Level.ERROR, VALIDATION_ERROR_MESSAGE);
+            throw new FileException(VALIDATION_ERROR_MESSAGE);
         }
-        logger.log(Level.INFO, SUCCESS_READ);
+        logger.log(Level.INFO, SUCCESS_READ_MESSAGE);
         return validLine;
     }
 }
