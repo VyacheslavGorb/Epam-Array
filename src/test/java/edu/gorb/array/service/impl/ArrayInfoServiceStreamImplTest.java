@@ -2,18 +2,19 @@ package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
 import edu.gorb.array.exception.ArrayException;
+import edu.gorb.array.service.ArrayInfoService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class ArrayInfoServiceImplTest {
-    ArrayInfoServiceImpl service;
+public class ArrayInfoServiceStreamImplTest {
+    ArrayInfoService service;
 
     @BeforeClass
     public void createServiceObject() {
-        service = new ArrayInfoServiceImpl();
+        service = new ArrayInfoServiceStreamImpl();
     }
 
     @Test(dataProvider = "sum_data")

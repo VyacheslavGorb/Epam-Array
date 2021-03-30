@@ -10,6 +10,6 @@ public class ArrayValidator {
     }
 
     public boolean isValidArrayIndex(IntArray array, int index){
-        return (index < array.size() - 1) && (index >= 0);
+        return (index < array.size()) && (index >= 0);
     }
 }

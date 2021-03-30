@@ -14,13 +14,13 @@ public class ArrayReplaceServiceImpl implements ArrayReplaceService {
     public void replaceOddWithZero(IntArray array) {
         try{
             for (int i = 0; i < array.size(); i++) {
-                if (array.get(i) % 2 != 0) {
-                    array.set(i, 0);
+                if (array.getItem(i) % 2 != 0) {
+                    array.setItem(i, 0);
                 }
             }
         }catch (ArrayException ignored){
         }
 
-        logger.log(Level.INFO, "Replacement is complete");
+        logger.log(Level.INFO, "Replacement complete");
     }
 }

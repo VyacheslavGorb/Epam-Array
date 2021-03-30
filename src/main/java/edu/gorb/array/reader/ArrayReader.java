@@ -21,6 +21,10 @@ public class ArrayReader {
     private static final String SUCCESS_READ_MESSAGE = "Correct line was read in file: ";
 
     public String readArrayLine(String fileName) throws FileException {
+        if (fileName == null){
+            logger.log(Level.ERROR, "File name is null");
+            throw new FileException("File name is null");
+        }
         Path path = Paths.get(fileName);
         String validLine = null;
         try (Stream<String> lineStream = Files.lines(path)) {

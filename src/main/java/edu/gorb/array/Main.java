@@ -17,7 +17,7 @@ public class Main {
         try{
             array = creator.createArrayEntity();
         }catch (FileException e){
-            logger.log(Level.ERROR,e.getMessage());
+            logger.log(Level.FATAL,e.getMessage());
             return;
         }
         logger.log(Level.INFO, "Array created successfully");

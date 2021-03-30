@@ -18,7 +18,7 @@ public class ArraySortServiceImpl implements ArraySortService {
             int length = array.size();
             for (int i = 0; i < length - 1; i++)
                 for (int j = 0; j < length - i - 1; j++)
-                    if (array.get(j) > array.get(j + 1)) {
+                    if (array.getItem(j) > array.getItem(j + 1)) {
                         swap(array, j, j + 1);
                     }
             logger.log(Level.INFO, INFO_MESSAGE, "Bubble sort");
@@ -31,13 +31,13 @@ public class ArraySortServiceImpl implements ArraySortService {
         try {
             int length = array.size();
             for (int i = 1; i < length; ++i) {
-                int temp = array.get(i);
+                int temp = array.getItem(i);
                 int j = i - 1;
-                while (j >= 0 && array.get(j) > temp) {
-                    array.set(j + 1, array.get(j));
+                while (j >= 0 && array.getItem(j) > temp) {
+                    array.setItem(j + 1, array.getItem(j));
                     j = j - 1;
                 }
-                array.set(j + 1, temp);
+                array.setItem(j + 1, temp);
             }
             logger.log(Level.INFO, INFO_MESSAGE, "Insertion sort");
         }catch (ArrayException ignored){
@@ -56,11 +56,11 @@ public class ArraySortServiceImpl implements ArraySortService {
 
     private void quickSortService(IntArray array, int left, int right) throws ArrayException {
         if (left < right) {
-            int pivot = array.get(right);
+            int pivot = array.getItem(right);
             int i = (left - 1);
 
             for (int j = left; j <= right - 1; j++) {
-                if (array.get(j) < pivot) {
+                if (array.getItem(j) < pivot) {
                     i++;
                     swap(array, i, j);
                 }
@@ -74,9 +74,9 @@ public class ArraySortServiceImpl implements ArraySortService {
 
     private void swap(IntArray array, int i, int j) {
         try {
-            int temp = array.get(i);
-            array.set(i, array.get(j));
-            array.set(j, temp);
+            int temp = array.getItem(i);
+            array.setItem(i, array.getItem(j));
+            array.setItem(j, temp);
         } catch (ArrayException ignored) {
         }
     }

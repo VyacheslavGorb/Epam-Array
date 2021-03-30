@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Arrays;
 
 public class IntArray {
-    private final int[] array;
+    private int[] array;
     private static final ArrayValidator validator = new ArrayValidator();
     private static final String INDEX_ERROR_MESSAGE = "Index is not valid";
     private static final Logger logger = LogManager.getLogger();
@@ -28,7 +28,15 @@ public class IntArray {
         array = a.clone();
     }
 
-    public int get(int index) throws ArrayException {
+    public int[] get(){
+        return array.clone();
+    }
+
+    public void set(int[] a){
+        array = a.clone();
+    }
+
+    public int getItem(int index) throws ArrayException {
         if (!validator.isValidArrayIndex(this,index)){
             logger.log(Level.ERROR, INDEX_ERROR_MESSAGE);
             throw new ArrayException(INDEX_ERROR_MESSAGE);
@@ -36,7 +44,7 @@ public class IntArray {
             return array[index];
     }
 
-    public void set(int index, int value) throws ArrayException {
+    public void setItem(int index, int value) throws ArrayException {
         if (!validator.isValidArrayIndex(this,index)){
             logger.log(Level.ERROR, INDEX_ERROR_MESSAGE);
             throw new ArrayException(INDEX_ERROR_MESSAGE);

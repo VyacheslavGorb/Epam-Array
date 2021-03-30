@@ -20,8 +20,8 @@ public class ArraySearchServiceImpl implements ArraySearchService {
         }
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < array.size(); i++) {
-            if (min > array.get(i)) {
-                min = array.get(i);
+            if (min > array.getItem(i)) {
+                min = array.getItem(i);
             }
         }
         logger.log(Level.INFO, "Minimal element is {}", min);
@@ -36,8 +36,8 @@ public class ArraySearchServiceImpl implements ArraySearchService {
         }
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < array.size(); i++) {
-            if (max < array.get(i)) {
-                max = array.get(i);
+            if (max < array.getItem(i)) {
+                max = array.getItem(i);
             }
         }
         logger.log(Level.INFO, "Maximal element is {}", max);

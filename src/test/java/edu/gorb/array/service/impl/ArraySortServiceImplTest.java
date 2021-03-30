@@ -40,7 +40,11 @@ public class ArraySortServiceImplTest {
                 {new IntArray(4, 2, 3, 4, 5, 6),
                         new IntArray(2, 3, 4, 4, 5, 6)},
                 {new IntArray(10, 2, 10, 8, 10, 10, 4, 10),
-                        new IntArray(2, 4, 8, 10, 10, 10, 10, 10)}
+                        new IntArray(2, 4, 8, 10, 10, 10, 10, 10)},
+                {new IntArray(),
+                        new IntArray()},
+                {new IntArray(1),
+                        new IntArray(1)}
         };
     }
 }

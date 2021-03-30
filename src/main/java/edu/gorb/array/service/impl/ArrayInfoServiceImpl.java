@@ -18,7 +18,7 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
         }
         int sum = 0;
         for (int i = 0; i < array.size(); i++) {
-            sum += array.get(i);
+            sum += array.getItem(i);
         }
         logger.log(Level.INFO, "Sum is {}", sum);
         return sum;
@@ -32,7 +32,7 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
         }
         int sum = 0;
         for (int i = 0; i < array.size(); i++) {
-            sum += array.get(i);
+            sum += array.getItem(i);
         }
         double average = (double) sum / array.size();
         logger.log(Level.INFO, "Average is {}", average);
@@ -44,7 +44,7 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
         int count = 0;
         try {
             for (int i = 0; i < array.size(); i++) {
-                if (array.get(i) > 0) {
+                if (array.getItem(i) > 0) {
                     count++;
                 }
             }
@@ -59,7 +59,7 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
         int count = 0;
         try{
             for (int i = 0; i < array.size(); i++) {
-                if (array.get(i) < 0) {
+                if (array.getItem(i) < 0) {
                     count++;
                 }
             }
