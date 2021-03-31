@@ -8,13 +8,13 @@ import org.apache.logging.log4j.*;
 public class ArrayInfoServiceImpl implements ArrayInfoService {
 
     private static final Logger logger = LogManager.getLogger();
-    private static final String ERROR_MESSAGE = "Array is empty";
+    private static final String ARRAY_EMPTY_ERROR_MESSAGE = "Array is empty";
 
     @Override
     public int calcSum(IntArray array) throws ArrayException {
         if (array.size() == 0) {
-            logger.log(Level.ERROR, ERROR_MESSAGE);
-            throw new ArrayException(ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
         }
         int sum = 0;
         for (int i = 0; i < array.size(); i++) {
@@ -27,8 +27,8 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     @Override
     public double calcAverage(IntArray array) throws ArrayException {
         if (array.size() == 0) {
-            logger.log(Level.ERROR, ERROR_MESSAGE);
-            throw new ArrayException(ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
         }
         int sum = 0;
         for (int i = 0; i < array.size(); i++) {
@@ -57,13 +57,13 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     @Override
     public int calcNegativeElementCount(IntArray array) {
         int count = 0;
-        try{
+        try {
             for (int i = 0; i < array.size(); i++) {
                 if (array.getItem(i) < 0) {
                     count++;
                 }
             }
-        }catch (ArrayException ignored){
+        } catch (ArrayException ignored) {
         }
         logger.log(Level.INFO, "Negative element count is {}", count);
         return count;

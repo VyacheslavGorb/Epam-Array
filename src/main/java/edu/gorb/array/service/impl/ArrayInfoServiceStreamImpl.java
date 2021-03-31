@@ -28,9 +28,9 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
 
     @Override
     public double calcAverage(IntArray intArray) throws ArrayException {
-        OptionalDouble average =  Arrays.stream(intArray.get())
+        OptionalDouble average = Arrays.stream(intArray.get())
                 .average();
-        if (average.isEmpty()){
+        if (average.isEmpty()) {
             logger.log(Level.ERROR, ERROR_MESSAGE);
             throw new ArrayException(ERROR_MESSAGE);
         }
