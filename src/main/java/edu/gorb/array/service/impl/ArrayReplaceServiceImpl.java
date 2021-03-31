@@ -20,7 +20,6 @@ public class ArrayReplaceServiceImpl implements ArrayReplaceService {
             }
         }catch (ArrayException ignored){
         }
-
         logger.log(Level.INFO, "Replacement complete");
     }
 }

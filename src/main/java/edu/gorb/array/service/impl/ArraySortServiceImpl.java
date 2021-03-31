@@ -1,7 +1,6 @@
 package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
-import edu.gorb.array.exception.ArrayException;
 import edu.gorb.array.service.ArraySortService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -13,54 +12,49 @@ public class ArraySortServiceImpl implements ArraySortService {
     private static final String INFO_MESSAGE = "Array was sorted ({})";
 
     @Override
-    public void bubbleSort(IntArray array) {
-        try{
-            int length = array.size();
-            for (int i = 0; i < length - 1; i++)
-                for (int j = 0; j < length - i - 1; j++)
-                    if (array.getItem(j) > array.getItem(j + 1)) {
-                        swap(array, j, j + 1);
-                    }
-            logger.log(Level.INFO, INFO_MESSAGE, "Bubble sort");
-        }catch (ArrayException ignored){
-        }
-    }
-
-    @Override
-    public void insertionSort(IntArray array) {
-        try {
-            int length = array.size();
-            for (int i = 1; i < length; ++i) {
-                int temp = array.getItem(i);
-                int j = i - 1;
-                while (j >= 0 && array.getItem(j) > temp) {
-                    array.setItem(j + 1, array.getItem(j));
-                    j = j - 1;
+    public void bubbleSort(IntArray intArray) {
+        int[] array = intArray.get();
+        for (int i = 0; i < array.length - 1; i++)
+            for (int j = 0; j < array.length - i - 1; j++)
+                if (array[j] > array[j + 1]) {
+                    swap(array, j, j + 1);
                 }
-                array.setItem(j + 1, temp);
-            }
-            logger.log(Level.INFO, INFO_MESSAGE, "Insertion sort");
-        }catch (ArrayException ignored){
-        }
+        intArray.set(array);
+        logger.log(Level.INFO, INFO_MESSAGE, "Bubble sort");
     }
 
     @Override
-    public void quickSort(IntArray array) {
-        try{
-            quickSortService(array, 0, array.size() - 1);
-            logger.log(Level.INFO, INFO_MESSAGE, "Quick sort");
-        }catch (ArrayException ignored){
+    public void insertionSort(IntArray intArray) {
+        int[] array = intArray.get();
+        for (int i = 1; i < array.length; ++i) {
+            int temp = array[i];
+            int j = i - 1;
+            while (j >= 0 && array[j] > temp) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = temp;
         }
+        intArray.set(array);
+        logger.log(Level.INFO, INFO_MESSAGE, "Insertion sort");
+    }
+
+    @Override
+    public void quickSort(IntArray intArray) {
+        int[] array = intArray.get();
+        quickSortService(array, 0, array.length - 1);
+        intArray.set(array);
+        logger.log(Level.INFO, INFO_MESSAGE, "Quick sort");
     }
 
 
-    private void quickSortService(IntArray array, int left, int right) throws ArrayException {
+    private void quickSortService(int[] array, int left, int right) {
         if (left < right) {
-            int pivot = array.getItem(right);
+            int pivot = array[right];
             int i = (left - 1);
 
             for (int j = left; j <= right - 1; j++) {
-                if (array.getItem(j) < pivot) {
+                if (array[j] < pivot) {
                     i++;
                     swap(array, i, j);
                 }
@@ -72,12 +66,9 @@ public class ArraySortServiceImpl implements ArraySortService {
         }
     }
 
-    private void swap(IntArray array, int i, int j) {
-        try {
-            int temp = array.getItem(i);
-            array.setItem(i, array.getItem(j));
-            array.setItem(j, temp);
-        } catch (ArrayException ignored) {
-        }
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }

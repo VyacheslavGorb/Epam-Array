@@ -30,7 +30,7 @@ public class ArrayReaderTest {
     @DataProvider(name = "files_data")
     public Object[][] createFileRecords() {
         return new Object[][]{
-                {"src/test/resources/array.txt", "1, 2, 3, 4, 5, 6"},
+                {"src/test/resources/testFile1.txt", "1, 2, 3, 4, 5, 6"},
                 {"src/test/resources/testFile2.txt", "43, 2, 6, 3, 2, 5, 6"}
         };
     }
