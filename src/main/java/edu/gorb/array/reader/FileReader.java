@@ -20,16 +20,16 @@ public class FileReader {
 
     public List<String> readFile(String filePathString) throws FileReadException {
         File file = new File(filePathString);
-        if (!file.isFile()){
+        if (!file.isFile()) {
             logger.log(Level.ERROR, "{} is not valid filepath", filePathString);
             throw new FileReadException(filePathString + " is not valid filepath");
         }
-        if(file.length() == 0){
+        if (file.length() == 0) {
             return new ArrayList<>();
         }
         Path path = Paths.get(filePathString);
         List<String> readLines;
-        try(Stream<String> lines = Files.lines(path)){
+        try (Stream<String> lines = Files.lines(path)) {
             readLines = lines.collect(Collectors.toList());
         } catch (IOException exception) {
             logger.log(Level.ERROR, "Error while reading file: {}", filePathString);
