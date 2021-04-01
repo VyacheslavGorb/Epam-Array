@@ -39,7 +39,7 @@ public class ArrayInfoServiceImplTest {
     }
 
     @Test(dataProvider = "positive_element_count")
-    public void testCalcPositiveElementCount(IntArray array, int expectedValue) {
+    public void testCalcPositiveElementCount(IntArray array, int expectedValue) throws ArrayException {
         int count = service.calcPositiveElementCount(array);
         assertEquals(count, expectedValue);
     }

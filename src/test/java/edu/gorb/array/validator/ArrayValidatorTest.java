@@ -32,7 +32,7 @@ public class ArrayValidatorTest {
     @DataProvider(name = "array_lines_valid")
     public Object[][] createArrayLines() {
         return new Object[][]{
-                {"1, 2, 3, -4, 5, 6, 7"},
+                {"1, 2, 3, -4,   5, 6, 7"},
                 {"1, -2, 3, 4, -5, 6, -7"}
         };
     }

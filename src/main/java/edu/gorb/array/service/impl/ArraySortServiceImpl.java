@@ -1,6 +1,7 @@
 package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
+import edu.gorb.array.exception.ArrayException;
 import edu.gorb.array.service.ArraySortService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +13,11 @@ public class ArraySortServiceImpl implements ArraySortService {
     private static final String INFO_MESSAGE = "Array was sorted ({})";
 
     @Override
-    public void bubbleSort(IntArray intArray) {
+    public void bubbleSort(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         int[] array = intArray.get();
         for (int i = 0; i < array.length - 1; i++)
             for (int j = 0; j < array.length - i - 1; j++)
@@ -24,7 +29,11 @@ public class ArraySortServiceImpl implements ArraySortService {
     }
 
     @Override
-    public void insertionSort(IntArray intArray) {
+    public void insertionSort(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         int[] array = intArray.get();
         for (int i = 1; i < array.length; ++i) {
             int temp = array[i];
@@ -40,7 +49,11 @@ public class ArraySortServiceImpl implements ArraySortService {
     }
 
     @Override
-    public void quickSort(IntArray intArray) {
+    public void quickSort(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         int[] array = intArray.get();
         quickSortService(array, 0, array.length - 1);
         intArray.set(array);

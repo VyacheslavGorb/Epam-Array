@@ -14,6 +14,10 @@ public class ArraySearchServiceImpl implements ArraySearchService {
 
     @Override
     public int findMinElement(IntArray array) throws ArrayException {
+        if (array == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         if (array.size() == 0) {
             logger.log(Level.ERROR, ERROR_MESSAGE);
             throw new ArrayException(ERROR_MESSAGE);
@@ -30,6 +34,10 @@ public class ArraySearchServiceImpl implements ArraySearchService {
 
     @Override
     public int findMaxElement(IntArray array) throws ArrayException {
+        if (array == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         if (array.size() == 0) {
             logger.log(Level.ERROR, ERROR_MESSAGE);
             throw new ArrayException(ERROR_MESSAGE);

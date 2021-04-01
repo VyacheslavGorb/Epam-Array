@@ -1,6 +1,7 @@
 package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
+import edu.gorb.array.exception.ArrayException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class ArrayReplaceServiceImplTest {
     }
 
     @Test(dataProvider = "replace_data")
-    public void testReplaceOddWithZero(IntArray array, IntArray expectedArray) {
+    public void testReplaceOddWithZero(IntArray array, IntArray expectedArray) throws ArrayException {
         service.replaceOddWithZero(array);
         assertEquals(array, expectedArray);
     }

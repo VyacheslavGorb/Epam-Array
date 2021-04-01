@@ -12,6 +12,10 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
 
     @Override
     public int calcSum(IntArray array) throws ArrayException {
+        if (array == null) {
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         if (array.size() == 0) {
             logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
             throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
@@ -26,6 +30,10 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
 
     @Override
     public double calcAverage(IntArray array) throws ArrayException {
+        if (array == null) {
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         if (array.size() == 0) {
             logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
             throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
@@ -40,7 +48,11 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     }
 
     @Override
-    public int calcPositiveElementCount(IntArray array) {
+    public int calcPositiveElementCount(IntArray array) throws ArrayException {
+        if (array == null) {
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         int count = 0;
         try {
             for (int i = 0; i < array.size(); i++) {
@@ -49,6 +61,7 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
                 }
             }
         } catch (ArrayException ignored) {
+            // Index is always valid
         }
         logger.log(Level.INFO, "Positive element count is {}", count);
         return count;
@@ -64,6 +77,7 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
                 }
             }
         } catch (ArrayException ignored) {
+            // Index is always valid
         }
         logger.log(Level.INFO, "Negative element count is {}", count);
         return count;

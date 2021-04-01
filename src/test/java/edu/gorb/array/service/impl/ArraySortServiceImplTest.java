@@ -1,6 +1,7 @@
 package edu.gorb.array.service.impl;
 
 import edu.gorb.array.enity.IntArray;
+import edu.gorb.array.exception.ArrayException;
 import edu.gorb.array.service.ArraySortService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -17,25 +18,25 @@ public class ArraySortServiceImplTest {
     }
 
     @Test(dataProvider = "sort_data")
-    public void testBubbleSort(IntArray array, IntArray expectedValue) {
+    public void testBubbleSort(IntArray array, IntArray expectedValue) throws ArrayException {
         service.bubbleSort(array);
         assertEquals(array, expectedValue);
     }
 
     @Test(dataProvider = "sort_data")
-    public void testInsertionSort(IntArray array, IntArray expectedValue) {
+    public void testInsertionSort(IntArray array, IntArray expectedValue) throws ArrayException {
         service.insertionSort(array);
         assertEquals(array, expectedValue);
     }
 
     @Test(dataProvider = "sort_data")
-    public void testQuickSort(IntArray array, IntArray expectedValue) {
+    public void testQuickSort(IntArray array, IntArray expectedValue) throws ArrayException {
         service.quickSort(array);
         assertEquals(array, expectedValue);
     }
 
     @DataProvider(name = "sort_data")
-    public Object[][] createReplaceData() {
+    public Object[][] createReplaceData() throws ArrayException {
         return new Object[][]{
                 {new IntArray(4, 2, 3, 4, 5, 6),
                         new IntArray(2, 3, 4, 4, 5, 6)},

@@ -40,13 +40,13 @@ public class ArrayInfoServiceStreamImplTest {
     }
 
     @Test(dataProvider = "positive_element_count")
-    public void testCalcPositiveElementCount(IntArray array, int expectedValue) {
+    public void testCalcPositiveElementCount(IntArray array, int expectedValue) throws ArrayException {
         int count = service.calcPositiveElementCount(array);
         assertEquals(count, expectedValue);
     }
 
     @Test(dataProvider = "negative_element_count")
-    public void testCalcNegativeElementCount(IntArray array, int expectedValue) {
+    public void testCalcNegativeElementCount(IntArray array, int expectedValue) throws ArrayException {
         int count = service.calcNegativeElementCount(array);
         assertEquals(count, expectedValue);
     }

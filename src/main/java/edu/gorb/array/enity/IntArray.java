@@ -10,19 +10,28 @@ import java.util.Arrays;
 public class IntArray {
     private int[] array;
     private static final String INDEX_ERROR_MESSAGE = "Index is not valid";
+    private static final String ARRAY_SIZE_ERROR_MESSAGE = "Array size must be positive";
     private static final Logger logger = LogManager.getLogger();
 
-    public IntArray(int size) {
+    public IntArray(int size) throws ArrayException {
+        if(size < 0){
+            logger.log(Level.ERROR, ARRAY_SIZE_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_SIZE_ERROR_MESSAGE);
+        }
         array = new int[size];
     }
 
-    public IntArray(int size, int value) {
+    public IntArray(int size, int value) throws ArrayException {
+        if(size < 0){
+            logger.log(Level.ERROR, ARRAY_SIZE_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_SIZE_ERROR_MESSAGE);
+        }
         array = new int[size];
         Arrays.fill(array, value);
     }
 
     public IntArray(int... a) {
-        array = a.clone();
+        array = a;
     }
 
     public int[] get() {

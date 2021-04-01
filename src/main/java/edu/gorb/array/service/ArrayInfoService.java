@@ -8,7 +8,7 @@ public interface ArrayInfoService {
 
     double calcAverage(IntArray array) throws ArrayException;
 
-    int calcPositiveElementCount(IntArray array);
+    int calcPositiveElementCount(IntArray array) throws ArrayException;
 
-    int calcNegativeElementCount(IntArray array);
+    int calcNegativeElementCount(IntArray array) throws ArrayException;
 }

@@ -9,9 +9,10 @@ import java.util.Arrays;
 
 public class ArrayParser {
     private static final Logger logger = LogManager.getLogger();
+    private static final String SPACE_REGEXP = ",\\s+";
 
-    public int[] parseLine(String line) throws ArrayException {
-        String[] numbers = line.split(", ");
+    public int[] parseLine(String numberLine) throws ArrayException {
+        String[] numbers = numberLine.split(SPACE_REGEXP);
         int[] array;
         try {
             array = Arrays.stream(numbers)

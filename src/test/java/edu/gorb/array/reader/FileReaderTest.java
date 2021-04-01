@@ -1,12 +1,11 @@
 package edu.gorb.array.reader;
 
-import edu.gorb.array.exception.FileReadException;
+import edu.gorb.array.exception.ArrayException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
@@ -19,13 +18,13 @@ public class FileReaderTest {
     }
 
     @Test(dataProvider = "files_data")
-    public void readArrayLineTest(String fileName, List<String> expectedValue) throws FileReadException {
-        List<String> value = reader.readFile(fileName);
+    public void readArrayLineTest(String fileName, String expectedValue) throws ArrayException {
+        String value = reader.readFile(fileName);
         assertEquals(value, expectedValue);
     }
 
-    @Test(dataProvider = "files_data_invalid", expectedExceptions = FileReadException.class)
-    public void readArrayLineTestException(String fileName) throws FileReadException {
+    @Test(dataProvider = "files_data_invalid", expectedExceptions = ArrayException.class)
+    public void readArrayLineTestException(String fileName) throws ArrayException {
         reader.readFile(fileName);
     }
 
@@ -34,18 +33,15 @@ public class FileReaderTest {
     public Object[][] createFileRecords() {
         generateResourceAbsolutePath("testFile1.txt");
         return new Object[][]{
-                {generateResourceAbsolutePath("testFile1.txt"), List.of(
-                        "1, 2, 3, 4, 5, 6",
-                        "1, 43, 432, 42, 12",
-                        "43, 2, 6, 3, 2, 5, 6")},
-                {generateResourceAbsolutePath("testFile2.txt"), List.of()}
+                {generateResourceAbsolutePath("testFile1.txt"), "1, 43, 432, 42, 12"}
         };
     }
 
     @DataProvider(name = "files_data_invalid")
     public Object[][] createFileRecordsInvalid() {
         return new Object[][]{
-                {"doesntExist.txt"}
+                {"doesntExist.txt"},
+                {generateResourceAbsolutePath("testFile2.txt")}
         };
     }
 

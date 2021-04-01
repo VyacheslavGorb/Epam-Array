@@ -17,6 +17,10 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
 
     @Override
     public int calcSum(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         if (intArray.size() == 0) {
             logger.log(Level.ERROR, ERROR_MESSAGE);
             throw new ArrayException(ERROR_MESSAGE);
@@ -28,6 +32,10 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
 
     @Override
     public double calcAverage(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         OptionalDouble average = Arrays.stream(intArray.get())
                 .average();
         if (average.isEmpty()) {
@@ -39,7 +47,11 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
     }
 
     @Override
-    public int calcPositiveElementCount(IntArray intArray) {
+    public int calcPositiveElementCount(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         long count = Arrays.stream(intArray.get())
                 .filter(el -> el > 0)
                 .count();
@@ -48,7 +60,11 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
     }
 
     @Override
-    public int calcNegativeElementCount(IntArray intArray) {
+    public int calcNegativeElementCount(IntArray intArray) throws ArrayException {
+        if (intArray == null){
+            logger.log(Level.ERROR, "Array argument is null");
+            throw new ArrayException("Array argument is null");
+        }
         long count = Arrays.stream(intArray.get())
                 .filter(el -> el < 0)
                 .count();
