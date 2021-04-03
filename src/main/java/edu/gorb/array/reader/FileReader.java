@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +15,7 @@ import java.nio.file.Paths;
 
 public class FileReader {
     private static final Logger logger = LogManager.getLogger();
+    private static final ArrayValidator validator = new ArrayValidator();
 
     public String readFile(String filePathString) throws ArrayException {
         if (filePathString == null) {
@@ -30,7 +32,6 @@ public class FileReader {
             throw new ArrayException("File is empty");
         }
         Path path = Paths.get(filePathString);
-        ArrayValidator validator = new ArrayValidator();
         String correctLine = null;
         try (var fileLines = Files.lines(path)) {
             correctLine = fileLines

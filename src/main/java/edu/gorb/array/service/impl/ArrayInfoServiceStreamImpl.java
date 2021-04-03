@@ -13,34 +13,34 @@ import java.util.OptionalDouble;
 public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
 
     private static final Logger logger = LogManager.getLogger();
-    private static final String ERROR_MESSAGE = "Array is empty";
+    private static final String ARRAY_IS_EMPTY_ERROR_MESSAGE = "Array is empty";
 
     @Override
     public int calcSum(IntArray intArray) throws ArrayException {
-        if (intArray == null){
+        if (intArray == null) {
             logger.log(Level.ERROR, "Array argument is null");
             throw new ArrayException("Array argument is null");
         }
         if (intArray.size() == 0) {
-            logger.log(Level.ERROR, ERROR_MESSAGE);
-            throw new ArrayException(ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_EMPTY_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_EMPTY_ERROR_MESSAGE);
         }
         int sum = Arrays.stream(intArray.get()).sum();
-        logger.log(Level.INFO, "Average is {}", sum);
+        logger.log(Level.INFO, "Sum is {}", sum);
         return sum;
     }
 
     @Override
     public double calcAverage(IntArray intArray) throws ArrayException {
-        if (intArray == null){
+        if (intArray == null) {
             logger.log(Level.ERROR, "Array argument is null");
             throw new ArrayException("Array argument is null");
         }
         OptionalDouble average = Arrays.stream(intArray.get())
                 .average();
         if (average.isEmpty()) {
-            logger.log(Level.ERROR, ERROR_MESSAGE);
-            throw new ArrayException(ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_EMPTY_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_EMPTY_ERROR_MESSAGE);
         }
         logger.log(Level.INFO, "Average is {}", average.getAsDouble());
         return average.getAsDouble();
@@ -48,7 +48,7 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
 
     @Override
     public int calcPositiveElementCount(IntArray intArray) throws ArrayException {
-        if (intArray == null){
+        if (intArray == null) {
             logger.log(Level.ERROR, "Array argument is null");
             throw new ArrayException("Array argument is null");
         }
@@ -61,7 +61,7 @@ public class ArrayInfoServiceStreamImpl implements ArrayInfoService {
 
     @Override
     public int calcNegativeElementCount(IntArray intArray) throws ArrayException {
-        if (intArray == null){
+        if (intArray == null) {
             logger.log(Level.ERROR, "Array argument is null");
             throw new ArrayException("Array argument is null");
         }

@@ -9,4 +9,6 @@ public interface ArraySortService {
     void insertionSort(IntArray array) throws ArrayException;
 
     void quickSort(IntArray array) throws ArrayException;
+
+    void streamSort(IntArray array) throws ArrayException;
 }

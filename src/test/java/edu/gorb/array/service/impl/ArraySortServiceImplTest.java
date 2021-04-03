@@ -35,6 +35,12 @@ public class ArraySortServiceImplTest {
         assertEquals(array, expectedValue);
     }
 
+    @Test(dataProvider = "sort_data")
+    public void testStreamSort(IntArray array, IntArray expectedValue) throws ArrayException {
+        service.streamSort(array);
+        assertEquals(array, expectedValue);
+    }
+
     @DataProvider(name = "sort_data")
     public Object[][] createReplaceData() throws ArrayException {
         return new Object[][]{
