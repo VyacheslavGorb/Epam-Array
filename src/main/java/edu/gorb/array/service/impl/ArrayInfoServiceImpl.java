@@ -9,12 +9,13 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
 
     private static final Logger logger = LogManager.getLogger();
     private static final String ARRAY_EMPTY_ERROR_MESSAGE = "Array is empty";
+    private static final String ARRAY_IS_NULL_ERROR_MESSAGE = "Array argument is null";
 
     @Override
     public int calcSum(IntArray array) throws ArrayException {
         if (array == null) {
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         if (array.size() == 0) {
             logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
@@ -31,8 +32,8 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     @Override
     public double calcAverage(IntArray array) throws ArrayException {
         if (array == null) {
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         if (array.size() == 0) {
             logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
@@ -50,8 +51,8 @@ public class ArrayInfoServiceImpl implements ArrayInfoService {
     @Override
     public int calcPositiveElementCount(IntArray array) throws ArrayException {
         if (array == null) {
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         int count = 0;
         try {

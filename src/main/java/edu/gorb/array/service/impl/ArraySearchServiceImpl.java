@@ -10,17 +10,18 @@ import org.apache.logging.log4j.Logger;
 public class ArraySearchServiceImpl implements ArraySearchService {
 
     private static final Logger logger = LogManager.getLogger();
-    private static final String ERROR_MESSAGE = "Array is empty";
+    private static final String ARRAY_IS_EMPTY_ERROR_MESSAGE = "Array is empty";
+    private static final String ARRAY_IS_NULL_ERROR_MESSAGE = "Array argument is null";
 
     @Override
     public int findMinElement(IntArray array) throws ArrayException {
-        if (array == null){
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+        if (array == null) {
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         if (array.size() == 0) {
-            logger.log(Level.ERROR, ERROR_MESSAGE);
-            throw new ArrayException(ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_EMPTY_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_EMPTY_ERROR_MESSAGE);
         }
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < array.size(); i++) {
@@ -34,13 +35,13 @@ public class ArraySearchServiceImpl implements ArraySearchService {
 
     @Override
     public int findMaxElement(IntArray array) throws ArrayException {
-        if (array == null){
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+        if (array == null) {
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         if (array.size() == 0) {
-            logger.log(Level.ERROR, ERROR_MESSAGE);
-            throw new ArrayException(ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_EMPTY_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_EMPTY_ERROR_MESSAGE);
         }
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < array.size(); i++) {

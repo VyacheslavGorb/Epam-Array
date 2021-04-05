@@ -47,10 +47,6 @@ public class ArrayMain {
             throw new ArrayException("File does not exist");
         }
         File file = new File(resourcePath.getFile());
-        if (!file.isFile()) {
-            logger.log(Level.ERROR, "Argument is not a file path");
-            throw new ArrayException("Argument is not a file path");
-        }
         return file.getAbsolutePath();
     }
 }

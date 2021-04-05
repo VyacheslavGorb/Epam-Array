@@ -9,12 +9,13 @@ import org.apache.logging.log4j.Logger;
 
 public class ArrayReplaceServiceImpl implements ArrayReplaceService {
     private static final Logger logger = LogManager.getLogger();
+    private static final String ARRAY_IS_NULL_ERROR_MESSAGE = "Array argument is null";
 
     @Override
     public void replaceOddWithZero(IntArray array) throws ArrayException {
-        if (array == null){
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+        if (array == null) {
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         try {
             for (int i = 0; i < array.size(); i++) {

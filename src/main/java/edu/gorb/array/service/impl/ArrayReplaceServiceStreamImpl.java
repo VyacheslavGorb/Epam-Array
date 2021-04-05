@@ -11,12 +11,13 @@ import java.util.Arrays;
 
 public class ArrayReplaceServiceStreamImpl implements ArrayReplaceService {
     private static final Logger logger = LogManager.getLogger();
+    private static final String ARRAY_IS_NULL_ERROR_MESSAGE = "Array argument is null";
 
     @Override
     public void replaceOddWithZero(IntArray intArray) throws ArrayException {
-        if (intArray == null){
-            logger.log(Level.ERROR, "Array argument is null");
-            throw new ArrayException("Array argument is null");
+        if (intArray == null) {
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         int[] array = Arrays.stream(intArray.get())
                 .map((int el) -> (el % 2 == 0) ? el : 0)

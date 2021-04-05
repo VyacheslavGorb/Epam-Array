@@ -13,13 +13,13 @@ import java.util.Arrays;
 public class ArraySortServiceImpl implements ArraySortService {
     private static final Logger logger = LogManager.getLogger();
     private static final String INFO_MESSAGE = "Array was sorted ({})";
-    private static final String ARRAY_EMPTY_ERROR_MESSAGE = "Array is empty";
+    private static final String ARRAY_IS_NULL_ERROR_MESSAGE = "Array argument is null";
 
     @Override
     public void bubbleSort(IntArray intArray) throws ArrayException {
         if (intArray == null) {
-            logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
-            throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         int[] array = intArray.get();
         for (int i = 0; i < array.length - 1; i++)
@@ -34,8 +34,8 @@ public class ArraySortServiceImpl implements ArraySortService {
     @Override
     public void insertionSort(IntArray intArray) throws ArrayException {
         if (intArray == null) {
-            logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
-            throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         int[] array = intArray.get();
         for (int i = 1; i < array.length; ++i) {
@@ -54,8 +54,8 @@ public class ArraySortServiceImpl implements ArraySortService {
     @Override
     public void quickSort(IntArray intArray) throws ArrayException {
         if (intArray == null) {
-            logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
-            throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         int[] array = intArray.get();
         quickSortService(array, 0, array.length - 1);
@@ -66,8 +66,8 @@ public class ArraySortServiceImpl implements ArraySortService {
     @Override
     public void streamSort(IntArray intArray) throws ArrayException {
         if (intArray == null) {
-            logger.log(Level.ERROR, ARRAY_EMPTY_ERROR_MESSAGE);
-            throw new ArrayException(ARRAY_EMPTY_ERROR_MESSAGE);
+            logger.log(Level.ERROR, ARRAY_IS_NULL_ERROR_MESSAGE);
+            throw new ArrayException(ARRAY_IS_NULL_ERROR_MESSAGE);
         }
         int[] array = intArray.get();
         int[] sortedArray = Arrays.stream(array)

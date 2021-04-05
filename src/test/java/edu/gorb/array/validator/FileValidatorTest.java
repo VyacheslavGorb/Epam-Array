@@ -1,39 +1,37 @@
-package edu.gorb.array.reader;
+package edu.gorb.array.validator;
 
-import edu.gorb.array.exception.ArrayException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
-public class FileReaderTest {
-    FileReader reader;
+public class FileValidatorTest {
+
+    FileValidator validator;
 
     @BeforeClass
-    public void createReader() {
-        reader = new FileReader();
+    public void createValidator() {
+        validator = new FileValidator();
     }
 
     @Test(dataProvider = "files_data")
-    public void readArrayLineTest(String fileName, String expectedValue) throws ArrayException {
-        String value = reader.readFile(fileName);
-        assertEquals(value, expectedValue);
+    public void readArrayLineTest(String fileName) {
+        assertTrue(validator.isValidFile(fileName));
     }
 
-    @Test(dataProvider = "files_data_invalid", expectedExceptions = ArrayException.class)
-    public void readArrayLineTestException(String fileName) throws ArrayException {
-        reader.readFile(fileName);
+    @Test(dataProvider = "files_data_invalid")
+    public void readArrayLineTestException(String fileName) {
+        assertFalse(validator.isValidFile(fileName));
     }
-
 
     @DataProvider(name = "files_data")
     public Object[][] createFileRecords() {
         generateResourceAbsolutePath("testFile1.txt");
         return new Object[][]{
-                {generateResourceAbsolutePath("testFile1.txt"), "1, 43, 432, 42, 12"}
+                {generateResourceAbsolutePath("testFile1.txt")}
         };
     }
 
