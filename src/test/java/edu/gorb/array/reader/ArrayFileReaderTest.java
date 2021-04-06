@@ -9,12 +9,12 @@ import java.io.File;
 
 import static org.testng.Assert.assertEquals;
 
-public class FileReaderTest {
-    FileReader reader;
+public class ArrayFileReaderTest {
+    ArrayFileReader reader;
 
     @BeforeClass
     public void createReader() {
-        reader = new FileReader();
+        reader = new ArrayFileReader();
     }
 
     @Test(dataProvider = "files_data")

@@ -9,9 +9,9 @@ import java.util.Arrays;
 
 public class IntArray {
     private int[] array;
+    private static final Logger logger = LogManager.getLogger();
     private static final String INDEX_ERROR_MESSAGE = "Index is not valid";
     private static final String ARRAY_SIZE_ERROR_MESSAGE = "Array size must be positive";
-    private static final Logger logger = LogManager.getLogger();
 
     public IntArray(int size) throws ArrayException {
         if(size < 0){

@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileReader {
+public class ArrayFileReader {
     private static final Logger logger = LogManager.getLogger();
     private static final ArrayValidator arrayValidator = new ArrayValidator();
     private static final FileValidator fileValidator = new FileValidator();

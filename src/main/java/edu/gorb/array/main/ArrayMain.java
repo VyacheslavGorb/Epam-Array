@@ -4,7 +4,7 @@ import edu.gorb.array.creator.ArrayCreator;
 import edu.gorb.array.enity.IntArray;
 import edu.gorb.array.exception.ArrayException;
 import edu.gorb.array.parser.ArrayParser;
-import edu.gorb.array.reader.FileReader;
+import edu.gorb.array.reader.ArrayFileReader;
 import edu.gorb.array.service.ArraySortService;
 import edu.gorb.array.service.impl.ArraySortServiceImpl;
 import org.apache.logging.log4j.Level;
@@ -19,7 +19,7 @@ public class ArrayMain {
     private static final String RELATIVE_FILE_PATH = "files/array.txt";
 
     public static void main(String[] args) {
-        FileReader reader = new FileReader();
+        ArrayFileReader reader = new ArrayFileReader();
         ArrayParser parser = new ArrayParser();
         ArrayCreator creator = new ArrayCreator();
         ArraySortService sortService = new ArraySortServiceImpl();
